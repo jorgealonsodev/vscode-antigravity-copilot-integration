@@ -1,0 +1,56 @@
+{
+  "name": "copilot-models-antigravity",
+  "displayName": "Copilot Models for Antigravity IDE",
+  "description": "Registers GitHub Copilot models as language model providers inside Antigravity IDE",
+  "version": "0.1.0",
+  "publisher": "jorgealonsodev",
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "icon": "assets/copilot.png",
+  "categories": [
+    "AI"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onLanguageModelChatProvider:copilot"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copilot-models.signIn",
+        "title": "GitHub Copilot: Sign In",
+        "icon": "assets/copilot-icon.svg"
+      },
+      {
+        "command": "copilot-models.signOut",
+        "title": "GitHub Copilot: Sign Out"
+      }
+    ],
+    "languageModelChatProviders": [
+      {
+        "vendor": "copilot",
+        "displayName": "GitHub Copilot"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "vscode-test",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^25.9.1",
+    "@types/vscode": "1.107.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.9.1",
+    "glob": "^10.5.0",
+    "mocha": "^11.7.5",
+    "typescript": "^6.0.3"
+  }
+}
